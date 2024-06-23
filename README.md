@@ -9,8 +9,10 @@ for Windows (Windowsネイティブアプリ)
 
 このプロジェクトで、[Tauri](https://tauri.app/)を使ってWindowsネイティブアプリをつくってみて感覚を掴む。
 
-[!note]
-バイナリ配布しますが、利用は自己責任にてお願いします。
+![image](https://github.com/genhirano/FolderSizeViewer/assets/3538386/7db354b4-45ac-459c-a819-3df9c7df2fe2)
+
+> [!NOTE]
+> バイナリ配布しますが、利用は自己責任にてお願いします。
 
 ## ゴール
   * Windowsネイティブアプリ(.exe)を作る
@@ -27,9 +29,9 @@ for Windows (Windowsネイティブアプリ)
 ### Tauri : Rust + (React + Typescript)
 * Tauri(フレームワーク)
   *  https://tauri.app/
-  * メインプロセスはRust、UIはOSが提供するWebViewを使用する
+  * メインプロセスはRust、UIはOSが提供するWebViewをRustのライブラリがラップしたものを使用する
   * 一般的にはフロントエンドとバックエンドはWebAPIなどの非同期通信で実装されますが、Tauriはその両方がパッケージ化され、内部でプロセス間通信する。
-  * UIが、OSのWebViewを拡張したRust実装であるため、ブラウザに向けたWEBフレームワークが利用可能。当プロジェクトは React+TypeScriptを利用。
+  * UIがOSのWebViewを拡張したRust実装であるため、ブラウザに向けたフロントエンドWEBフレームワークが利用可能。当プロジェクトは **React+TypeScript**を利用。
 ## 開発環境
 * Windows 11
 * [VS Code](https://code.visualstudio.com/) 
@@ -65,18 +67,18 @@ for Windows (Windowsネイティブアプリ)
   > npx
   > create-tauri-app
 
-  ✔ Project name · hello4
+  ✔ Project name · my_project_name
   ✔ Choose which language to use for your frontend ·   TypeScript / JavaScript - (pnpm, yarn, npm, bun)
   ✔ Choose your package manager · npm
   ✔ Choose your UI template · React - (https://react.dev/)
   ✔ Choose your UI flavor · TypeScript
 
   Template created! To get started run:
-    cd hello4
+    cd my_project_name
     npm install
     npm run tauri dev
   ```
-    * npmでインストールする。（Cargoでのプロジェクト作成はReactが選択できなかった。謎）
+    * npmでプロジェクト作成する。（Cargoのプロジェクト作成ではReactが選択できなかったのでnpxを使用。謎）
 * Project Setting(最低限)
   * tauri.conf.json の以下部分をユニークなものに変更
     * "identifier": "com.tauri.dev",
@@ -103,8 +105,7 @@ for Windows (Windowsネイティブアプリ)
 
 ## その他
 * Rustのエントリーポイントを増やして、Rustだけで実行できるようにする方法
-
-* Step.1  Cargo.tomlに以下の２つを追加
+  * Step.1  Cargo.tomlに以下の２つを追加
   ```
   [[bin]]
   name = "default"
@@ -114,13 +115,13 @@ for Windows (Windowsネイティブアプリ)
   name = "main_only_rust"
   path = "src/main_only_rust.rs"
   ```
-  * nameはなんでもいい
-  * エントリーポイントとなる rs ファイルを pathで指定
-* Step.2　実行
+   * nameはなんでもいい
+   * エントリーポイントとなる rs ファイルを pathで指定
+  * Step.2　実行
   ```
   cd src-tauri
   cargo run --bin main_only_rust
   ```
-  * cargoで実行。--bin で、Cargo.tomlで作ったものを指定する
-  * 参考
-    * https://paruma184.hatenablog.com/entry/2021/09/22/210945
+   * cargoで実行。--bin で、Cargo.tomlで作ったものを指定する
+   * 参考
+     * https://paruma184.hatenablog.com/entry/2021/09/22/210945
