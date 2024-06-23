@@ -1,31 +1,35 @@
 # Folder Size Viewer
-**Windowsのフォルダを指定して、そのフォルダと、配下のフォルダのデータ量を階層で表示するアプリ**  
+**フォルダを指定して、そのフォルダと、配下フォルダのデータ量を階層表示するアプリ**  
 for Windows (Windowsネイティブアプリ)
-## このプロジェクトは
+## このプロジェクトは・・
 **Windowsデスクトップアプリをひとつ作ってみる。**
 
-Windowsアプリは、[TurboPascal](https://ja.wikipedia.org/wiki/Turbo_Pascal),　[Delphi](https://ja.wikipedia.org/wiki/Delphi)でしか作ったことがない。
-クロスプラットフォームアプリ開発を勉強中。このプロジェクトで[Tauri](https://tauri.app/)を使ってWindowsネイティブアプリをつくってみる。
+私は、[TurboPascal](https://ja.wikipedia.org/wiki/Turbo_Pascal),　[Delphi](https://ja.wikipedia.org/wiki/Delphi)でしかWindowsネイティブアプリを作ったことがない。
+現在、Windowsネイティブ／クロスプラットフォームアプリ開発を勉強中。
 
-練習・勉強なのでバイナリ配布はしますが利用は自己責任にてお願いしあます。
+このプロジェクトで、[Tauri](https://tauri.app/)を使ってWindowsネイティブアプリをつくってみて感覚を掴む。
+
+[!note]
+バイナリ配布しますが、利用は自己責任にてお願いします。
 
 ## ゴール
   * Windowsネイティブアプリ(.exe)を作る
-  * Tauriの基本概念を大まかに把握する
+  * Tauriの基本概念を大まかに把握する(OSネイティブとWebviewの通信など)
   * Rust,React,TypeScriptに触れ、ちょっと上達する
-  * 
 ## 制作物のテーマ
 * **「Windowsのフォルダを指定して、そのフォルダと、配下のフォルダのデータ量を階層で表示するアプリ」**
-  * Hello World!よりちょっと難しいくらいのものとして選定した
-  * Rustでは、構造体の中に参照をもたせると地獄なので、（リスト構造ではなく）ディレクトリ構造で実装してみる。もし複雑になりすぎる場合は、子オブジェクトに親オブジェクトへの参照は持たせない。（フォルダと、フォルダに属するフォルダ・ファイルを保管するVecのみとする）
-    * 下階層から親を指す「parent」は地獄でした。Rust初心者にはまだ早い、、
+  * Hello World!よりちょっと難しいくらいのものを作る
+  * 基本的な再帰処理を体験するため、シンプルなディレクトリ構造をデータに持つ
+  * Rustでは、構造体(struct)に参照をもたせると所有権地獄なので、（双方向リスト構造は避けて）ディレクトリ構造をテーマにして実装してみる。
+    * もし複雑になりすぎる場合は、子オブジェクトに親オブジェクトへの参照は持たせない。
+    * 後日談：下階層から親を指す「parent」は地獄。Rust初心者にはまだ早い。
 ## 使用技術
 ### Tauri : Rust + (React + Typescript)
-
 * Tauri(フレームワーク)
   *  https://tauri.app/
   * メインプロセスはRust、UIはOSが提供するWebViewを使用する
-  * UIがWebViewであるため、一般的なWEBフレームワークが利用可能。当プロジェクトは React+TypeScriptを利用。
+  * 一般的にはフロントエンドとバックエンドはWebAPIなどの非同期通信で実装されますが、Tauriはその両方がパッケージ化され、内部でプロセス間通信する。
+  * UIが、OSのWebViewを拡張したRust実装であるため、ブラウザに向けたWEBフレームワークが利用可能。当プロジェクトは React+TypeScriptを利用。
 ## 開発環境
 * Windows 11
 * [VS Code](https://code.visualstudio.com/) 
