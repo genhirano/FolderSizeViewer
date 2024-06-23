@@ -1,0 +1,105 @@
+/* Reset some default styles */
+body,
+ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f0f0 25%, #c8e6c9 100%);
+    color: #333;
+    padding: 15px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #0073e6;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 1.5em;
+}
+
+p {
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom:  10px;
+}
+
+button {
+    background: linear-gradient(45deg, #1e10e6, #7e15e0);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.8em;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #1e10e6, #7e15e0);
+    transform: scale(1.05);
+}
+
+
+.directory,
+.file {
+    margin-left: 10px;
+}
+
+.directory-header,
+.file {
+    display: flex;
+    align-items: center;
+    padding: 0px 0;
+    border-radius: 10px;
+}
+
+
+.icon {
+    margin-right: 10px;
+}
+
+.name {
+    flex-grow: 1;
+}
+
+.file_name {
+    font-size: 0.8em;
+    color: #919090;
+    flex-grow: 1;
+}
+
+
+.dir_size {
+    font-size: 1.0em;
+    color: #140808;
+}
+
+.file_size {
+    font-size: 0.7em;
+    color: #919090;
+}
+
+  
+ul.directory-contents {
+    list-style-type: none;
+    padding-left: 3px;
+    border-left: 2px dashed #082a4d;
+    margin: 10px 0;
+}
